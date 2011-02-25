@@ -10,16 +10,6 @@ set(CMAKE_NEPOMUKEXTRAS_VERSION_RELEASE 0)
 set(CMAKE_NEPOMUKEXTRAS_VERSION "${CMAKE_NEPOMUKEXTRAS_VERSION_MAJOR}.${CMAKE_NEPOMUKEXTRAS_VERSION_MINOR}.${CMAKE_NEPOMUKEXTRAS_VERSION_RELEASE}")
 
 
-# generate NepomukExtrasConfig.cmake for easy utilisation of the package by other cmake build systems
-# ===============================================================================================
-configure_file(NepomukExtrasConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfig.cmake @ONLY)
-configure_file(NepomukExtrasConfigVersion.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfigVersion.cmake @ONLY)
-install(FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfig.cmake
-  ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfigVersion.cmake
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/cmake/NepomukExtras)
-
-
 # search required packages
 # ===============================================================================================
 set(KDE_MIN_VERSION "4.5.00")
@@ -42,6 +32,16 @@ macro_log_feature(SHAREDDESKTOPONTOLOGIES_FOUND "Shared desktop ontologies" "Des
 macro_log_feature(Nepomuk_FOUND "Nepomuk" "Nepomuk Libraries" "kdelibs" TRUE "" "The basis for this package.")
 macro_log_feature(Strigi_FOUND "libstreamanalyzer" "Strigi file analyzer libs (streamanalyzer)" "libstreamanalyzer" TRUE "0.6.95" "Required to extract text from files.")
 macro_log_feature(Kolena_FOUND "Kolena" "The Kolena image text extraction" "kolena" FALSE "" "Required to extract text from images.")
+
+
+# generate NepomukExtrasConfig.cmake for easy utilisation of the package by other cmake build systems
+# ===============================================================================================
+configure_file(NepomukExtrasConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfig.cmake @ONLY)
+configure_file(NepomukExtrasConfigVersion.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfigVersion.cmake @ONLY)
+install(FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfig.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/NepomukExtrasConfigVersion.cmake
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/cmake/NepomukExtras)
 
 
 # build stuff
