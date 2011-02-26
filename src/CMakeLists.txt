@@ -10,6 +10,8 @@ include_directories(
   ${KOLENA_INCLUDE_DIR}
 )
 
+configure_file(nepomukextras_version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/nepomukextras_version.h)
+
 set(nepomukextras_SRC
   kcompleter.cpp
   kcompletionitem.cpp
@@ -30,6 +32,7 @@ set(nepomukextras_SRC
   classmodel.cpp
   textextractionjob.cpp
   strigitextextractionjob.cpp
+  nepomukextras_version.cpp
 )
 
 if(Kolena_FOUND)
@@ -81,4 +84,5 @@ install(FILES
   statementeditor.h
   classmodel.h
   textextractionjob.h
+  ${CMAKE_CURRENT_BINARY_DIR}/nepomukextras_version.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/nepomuk)
