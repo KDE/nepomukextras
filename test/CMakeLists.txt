@@ -4,6 +4,7 @@ include_directories(
   ${NEPOMUK_INCLUDE_DIR}
   ${NEPOMUK_INCLUDE_DIR}/nepomuk
   ${CMAKE_SOURCE_DIR}
+  ${CMAKE_SOURCE_DIR}/src/
 )
 
 kde4_add_executable(propertycompletertest propertycompletertest.cpp)
