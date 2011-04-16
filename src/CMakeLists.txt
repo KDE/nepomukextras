@@ -80,7 +80,6 @@ install(FILES
   searchmenu.h
   nepomukmenu.h
   resourceactions.h
-  newresourcedialog.h
   statementeditor.h
   classmodel.h
   textextractionjob.h
